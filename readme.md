@@ -35,15 +35,21 @@ This example was written in [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Execution steps
 
-1. Install backend dependencies
+1. Create a MongoDB database named `hangman`. The server should be listening on port 27017.
+
+2. Create a collection named `movies` and populate it with the script `data.js`
+   
+3. Install backend dependencies
 ```
 npm install
 ```
-2. Install frontend dependencies
+
+3. Install frontend dependencies
 ```
 bower install
 ```
-3. Run the project
+
+4. Run the project
 ```
 nodemon server.js
 ```

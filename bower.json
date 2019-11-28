@@ -1,6 +1,6 @@
 {
-  "name": "nodejs-chat",
-  "description": "Simple NodeJS Chat",
+  "name": "hangman-nodejs",
+  "description": "Hangman NodeJS",
   "main": "index.js",
   "authors": [
     "John Cardozo"
