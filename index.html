@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="client/css/hangman.css">
+</head>
+<body>
+    <h1>Hangman</h1>
+    
+    <!-- Blanks area -->
+    <div id="blanksArea"></div>
+    
+    <!-- Winner & loser messages -->
+    <div class="row messages">
+        <div class="col-2"></div> 
+        <div class="col-8"> 
+            <div class="alert alert-success" role="alert" id="winner-message">
+                We have a winner!!!
+            </div>
+            <div class="alert alert-danger" role="alert" id="loser-message">
+                Such a loser!!!
+            </div>           
+        </div> 
+        <div class="col-2"></div> 
+    </div> <!-- end of messages -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col forms">
+                <!-- form for naming the player -->
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="playerText" placeholder="Type player name">
+                    </div>
+                    <!-- <button type="button" id="guessButton" class="btn btn-primary mb-2">Guess</button> -->
+                </form>
+                <!-- form for guessing the movie -->
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="guessText" placeholder="Possible movie">
+                    </div>
+                    <button type="button" id="guessButton" class="btn btn-primary mb-2">Guess</button>
+                </form>
+                <!-- form to play a letter -->
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" maxlength="1" id="letterText" placeholder="Type the letter to play">
+                    </div>
+                    <button type="button" id="letterButton" class="btn btn-primary mb-2">Play</button>
+                </form>
+            </div> <!-- end of forms -->
+            <div class="col">
+                <!-- Canvas to draw the hangman -->
+                <canvas id="hangmanDrawing">Your browser does not support the canvas element.</canvas>
+            </div>
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Winnings</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-winners">
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>Rambo</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Commando</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>McLane</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+            </div>
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+
+    <script id="tbody-winners-template" type="text/x-handlebars-template">
+        {{#each winners}}
+        <tr class="bg-white">
+            <td class="align-middle">{{name}}</td>
+            <td class="align-middle">{{winnings}}</td>
+        </tr>   
+        {{/each}} 
+    </script>
+
+    <!-- Javascript libraries & scripts -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/socket.io-client/dist/socket.io.js"></script>
+    <script src="client/js/canvas.js"></script>
+    <script src="client/js/game.js"></script> 
+</body>
+</html>
